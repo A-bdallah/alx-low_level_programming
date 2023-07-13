@@ -9,6 +9,7 @@
 */
 
 int main(void)
+
 {
 printf("Size of a char: %u byte(s)\n", sizeof(char));
 printf("Size of a int: %u byte(s)\n", sizeof(int));
