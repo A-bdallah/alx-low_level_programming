@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * main -Entry point
+ * main - Entry point
  *
  * Description: using sizof to print the size of various types.
  *
