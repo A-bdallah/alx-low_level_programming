@@ -2,24 +2,34 @@
 /**
  * main - Entry point
  *
+ * Description: print a11 possible different
+ * combination of two digits
+ *
  * Return: Always 0 (Success)
- */
+*/
 int main(void)
 {
-int nums;
-int nums1;
+	int digit1 = 0, digit2;
 
-for (nums = '0'; nums <= '8'; nums++)
-{
-for (nums1 = '0'; nums1 <= '9'; nums1++)
-{
-putchar(nums);
-putchar(nums1);
-if (nums == '9' && nums1 == '9')
-continue;
-putchar(',');
-putchar(' ');
-}
+	while (digit2 <= 9)
+	{
+		digit2 = 0;
+		while (digit2 <= 9)
+		{
+		if (digit1 != digit2 && digit1 < digit2)
+		{
+			putchar(digit1 + 48);
+			putchar(digit2 + 48);
+
+			if (digit1 + digit2 != 17)
+			{
+				putchar(',');
+				putchar(' ');
+			}
+		}
+		digit2++;
+	}
+	digit1++;
 }
 putchar('\n');
 return (0);
