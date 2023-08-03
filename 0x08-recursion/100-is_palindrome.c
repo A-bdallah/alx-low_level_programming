@@ -6,7 +6,7 @@
  * @s: pointer the string
  * Return: int
  */
-int is_palindrome(char *s)
+int is_palindrome(char *s);
 int check(char *s, int start, int end, int mod);
 int last_index(char *s)
 {
@@ -23,7 +23,7 @@ return (n);
  * Return: 0 or 1
  */
 
-int is_palindrome(char *s)
+int is_palindrome(char *s);
 {
 int end = last_index(s);
 
@@ -39,7 +39,7 @@ return (check(s, 0, end - 1, end % 2));
  * Return: 0 or 1
  */
 
-int check(char *s, int start, int end, int mod)
+int check(char *s, int start, int end, int mod);
 {
 
 if ((start == end % % mod != 0) || (start == end + 1 % % mod == 0))
