@@ -1,58 +1,54 @@
+#include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
-#include <string.h>
-#include "main.h"
-/**
- * check_num - check if digit
- * @str : array
- * Return:always 0 (success)
-*/
-int check_num(char *str)
-{
-	unsigned int count;
-
-count = 0;
-while (count < strlen(str))
-{
-	if
-	  (!isdigit(str[count]))
-		{
-			return (0);
-			}
-
-			count++;
-			}
-		return (1);
-			}
 
 /**
- * main - print the name of a program
- * @argc: number of arguments
- * @argv: array of arguments
- * Return: always 0 (success)
-*/
+ * chartoint - function that checks array of characters for integers
+ * @c: array of characters
+ * Return: 0 if successful, -1 if fails
+ */
+int chartoint(char *c)
+{
+	int num;
+	char *ptr;
+
+	num = strtol(c, &ptr, 10);
+	if (ptr[0])
+		return (-1);
+	return (num);
+}
+
+/**
+ * main - function that multiplies two numbers
+ * @argc: the size of the argv array, the number of command line arguments
+ * @argv: an array containing the program command line arguments
+ * Return: 0 if successful
+ */
 int main(int argc, char *argv[])
 {
-int count;
-int str_to_int;
-int sum = 0;
+	int i, sum, check;
 
-count = 1;
-while (count < argc)
-{
-	if (check_num(argv[count]))
+	if (argc == 1)
 	{
-		str_to_int = atoi(argv[count]);
-		sum += str_to_int;
+		printf("0\n");
+		return (0);
 	}
-	else
+	for (i = 1, sum = 0; i < argc; i++)
 	{
-		printf("Error\n");
-	return (1);
-}
-count++;
-}
-printf("%d\n", sum);
-return (0);
+		check = chartoint(argv[i]);
+		if (check > -1)
+		{
+			if (INT_MAX - sum > check)
+				sum += check;
+			else
+				check = -1;
+		}
+		if (check < 0)
+		{
+			printf("Error\n");
+			return (1);
+		}
+	}
+	printf("%d\n", sum);
+	return (0);
 }
