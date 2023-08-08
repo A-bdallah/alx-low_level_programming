@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include "main.h"
-/*
- * print_to_98 - prints all natural numbers from n to 98,
- * @n : print from this number
-*/
+/**
+ *  print_to_98 - prints numbers from n to 98
+ *  @n: number strat prinitng from
+ *  Return: always 0
+ */
+
 void print_to_98(int n)
 
 {
