@@ -1,4 +1,6 @@
-i#include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include "main.h"
 
 /**
  * *_realloc - allocates a memory block using malloc and free.
