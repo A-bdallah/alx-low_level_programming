@@ -1,39 +1,35 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 /**
- * main - a function that copy memory area
- * @argc : number of arguments
- * @argv : array of arguments
- * Return: always 0 (success)
-*/
+ * main - program that prints the opcodes of its own main function
+ * @argc: number of elements in argv
+ * @argv: arguments
+ * Return: 0 if succesful
+ */
+
 int main(int argc, char *argv[])
 {
-	int bytes, i;
-	char *ar;
+	int arg, i;
+	unsigned char *pf;
 
 	if (argc != 2)
 	{
 		printf("Error\n");
 		exit(1);
 	}
-	bytes = atoi(argv[1]);
-
-	if (bytes < 0)
+	arg = atoi(argv[1]);
+	if (arg < 0)
 	{
 		printf("Error\n");
 		exit(2);
 	}
-	ar = (char *)main;
-	for (i = 0; i < bytes; i++)
+	pf = (unsigned char *)main;
+	for (i = 0; i < (arg - 1); i++)
 	{
-		if (i == bytes - 1)
-		{
-			printf("%02hhx\n", ar[i]);
-			break;
-		}
-		printf("%02hhx\n", ar[i]);
+		printf("%02x ", pf[i]);
 	}
+	printf("%02x", pf[i]);
+	printf("\n");
 	return (0);
 }
